@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'customFont';
+    src: url('../fonts/CorporativeSansAlt-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    --primary_blue: #2986CC;
+    --secondary_blue : #144366;
+    --error_red : #CC0000;
+
+    font-family: 'customFont', sans-serif;
+}
+
+.main_div{
+    background: rgb(41,134,204);
+    background: -moz-linear-gradient(90deg, var(--primary_blue) 0%, var(--secondary_blue) 100%);
+    background: -webkit-linear-gradient(90deg, var(--primary_blue) 0%, var(--secondary_blue) 100%);
+    background: linear-gradient(90deg, var(--primary_blue) 0%, var(--secondary_blue) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2986cc",endColorstr="#144366",GradientType=1);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,150 @@
+.main_page_container{
+    background: white;
+    width: 700px;
+    height: 550px;
+    border-radius: 20px;
+    padding: 20px 40px;
+    position: relative;
+}
+.main_page_heading_div{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.main_page_heading{
+    text-align: start;
+    color: var(--primary_blue);
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+.user_username{
+    color: var(--primary_blue);
+    font-weight: bold;
+}
+.user_role{
+    font-weight: bold;
+}
+
+.main_page_content_div{
+    height: 400px;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.main_page_add_div{
+
+}
+.main_page_add_div h1{
+    text-align: center;
+    padding: 40px 0;
+    letter-spacing: 3px;
+}
+.add_content{
+    padding: 0 20px;
+    display: grid;
+    gap: 10px;
+}
+.add_content button{
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    font-size: 30px;
+    padding: 10px 30px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.add_content button:hover{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+    color: var(--primary_blue);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main_page_find_div{
+
+}
+
+.main_page_find_div h1{
+    text-align: center;
+    padding: 40px 0;
+    letter-spacing: 3px;
+}
+.find_content{
+    padding: 0 20px;
+    display: grid;
+    gap: 10px;
+}
+.custom_redirect_search{
+    position: relative;
+}
+.custom_redirect_search input{
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    font-size: 30px;
+    padding: 10px 30px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.custom_redirect_search input:hover{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+}
+.custom_redirect_search input:active{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+}
+.custom_redirect_search input:focus{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+}
+
+.custom_redirect_list{
+    display: grid;
+    grid-template-columns: 1fr;
+    background: white;
+    max-height: 93px;
+    overflow: auto;
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, .3);
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+}
+.custom_redirect_list button{
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: rgba(41, 134, 204, .25);
+}
+.custom_redirect_list button:hover{
+    cursor: pointer;
+    background: rgba(41, 134, 204, 1);
+    color: white;
+}
+.hidden{
+    display: none;
+}
+
+.list_no_data_btn{
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: rgba(41, 134, 204, .25);
+}
+.list_no_data_btn:hover{
+    color: black!important;
+    background: rgba(41, 134, 204, .25)!important;
+    cursor: default!important;
+}

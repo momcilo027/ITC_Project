@@ -1,0 +1,111 @@
+.login_container{
+    background: white;
+    width: 400px;
+    height: 390px;
+    border-radius: 20px;
+    padding: 20px 40px;
+    position: relative;
+}
+.login_heading_div{
+}
+.login_heading{
+    text-align: center;
+    color: var(--primary_blue);
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+.login_inputs{
+    height: 190px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: end;
+}
+.login_input{
+
+}
+.login_input label{
+    font-size: 16px;
+    display: block;
+    margin-bottom: -5px;
+    z-index: 3;
+}
+.login_input input{
+    display: block;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 5px;
+    z-index: 2;
+}
+.login_input input:active{
+    border-bottom: 1px solid var(--primary_blue);
+}
+.login_input input:focus{
+    border-bottom: 1px solid var(--primary_blue);
+}
+.login_input input:hover{
+    border-bottom: 1px solid var(--primary_blue);
+}
+
+/* (start) input ERROR (start) */
+/* (start) input ERROR (start) */
+/* (start) input ERROR (start) */
+.login_input_error{
+
+}
+.login_input_error ::placeholder{
+    color: var(--error_red);
+    font-size: 16px;
+}
+.login_input_error label{
+    font-size: 16px;
+    display: block;
+    margin-bottom: -5px;
+    z-index: 3;
+}
+.login_input_error input{
+    display: block;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--error_red);
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 5px;
+    z-index: 2;
+}
+.login_input_error input:active{
+    border-bottom: 1px solid var(--error_red);
+}
+.login_input_error input:focus{
+    border-bottom: 1px solid var(--error_red);
+}
+.login_input_error input:hover{
+    border-bottom: 1px solid var(--error_red);
+}
+
+/* (end) input ERROR (end) */
+/* (end) input ERROR (end) */
+/* (end) input ERROR (end) */
+
+.login_btn_div{
+    position: absolute;
+    bottom: 40px;
+    width: calc(100% - 80px);
+}
+.login_btn{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    background: var(--primary_blue);
+    font-size: 20px;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+.login_btn:hover{
+    background: var(--secondary_blue);
+    cursor: pointer;
+}

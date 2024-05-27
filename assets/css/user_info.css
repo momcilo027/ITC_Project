@@ -1,0 +1,83 @@
+.user_info_container{
+    background: white;
+    width: 700px;
+    height: 750px;
+    border-radius: 20px;
+    padding: 20px 40px;
+}
+.user_info_content_div{
+    display: grid;
+    justify-content: center;
+}
+.user_info_content_heading{
+    padding: 50px 0 0 0;
+    text-align: center;
+}
+.user_info_content_heading h1{
+    letter-spacing: 2px;
+}
+.API_link{
+    background: var(--primary_blue);
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+.API_link:hover{
+    background: var(--secondary_blue);
+    cursor: pointer;
+}
+.user_info_content{
+    height: 520px;
+    position: relative;
+    width: 350px;
+}
+.user_info_inputs{
+    display: grid;
+    align-items: center;
+    gap: 20px;
+}
+.user_info_btn_div{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.user_info_btn{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    background: var(--primary_blue);
+    font-size: 20px;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+.user_info_btn:hover{
+    background: var(--secondary_blue);
+    cursor: pointer;
+}
+.promote_to_admin{
+    position: absolute;
+    right: 0;
+    bottom: 7px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: var(--primary_blue);
+    color: white;
+    letter-spacing: 1px;
+}
+.promote_to_admin:hover{
+    background: var(--secondary_blue);
+    cursor: pointer;
+}
+.user_info_btn:disabled{
+    background: rgba(0, 0, 0, .35);
+    cursor: default;
+}

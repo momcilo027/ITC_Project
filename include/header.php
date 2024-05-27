@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="../assets/css/register.css">
         <link rel="stylesheet" href="../assets/css/login.css">
         <link rel="stylesheet" href="../assets/css/main_page.css">
+        <link rel="stylesheet" href="../assets/css/add_company.css">
+        <link rel="stylesheet" href="../assets/css/user_info.css">
+        <link rel="stylesheet" href="../assets/css/client_info.css">
     </head>
     <body>
         <div class="main_div">

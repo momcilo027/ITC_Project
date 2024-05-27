@@ -27,7 +27,7 @@ function custom_redirect_search(input, url, search_type){
                         }
                         let btn = document.createElement('button');
                         btn.innerText = user_name;
-                        btn.setAttribute('onclick', `location.href = 'http://localhost/itc_project/pages/${search_type}.php'`);
+                        btn.setAttribute('onclick', `location.href = 'http://localhost/itc_project/pages/${search_type}.php?id=${element.id}'`);
     
                         custom_redirect_list.appendChild(btn);
                     });
@@ -65,7 +65,7 @@ function list_suggestion(input, url, search_type){
                     }
                     let btn = document.createElement('button');
                     btn.innerText = user_name;
-                    btn.setAttribute('onclick', `location.href = 'http://localhost/itc_project/pages/${search_type}.php'`);
+                    btn.setAttribute('onclick', `location.href = 'http://localhost/itc_project/pages/${search_type}.php?id=${element.id}'`);
 
                     custom_redirect_list.appendChild(btn);
                 });

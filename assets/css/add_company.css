@@ -1,0 +1,75 @@
+.add_company_page_container{
+    background: white;
+    width: 700px;
+    height: 700px;
+    border-radius: 20px;
+    padding: 20px 40px;
+    position: relative;
+}
+.add_company_page_content_div{
+    display: flex;
+    justify-content: center;
+    height: 590px;
+}
+.add_company_page_content{
+    width: 330px;
+    padding: 30px 0;
+    position: relative;
+}
+
+.add_company_heading{
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 2px;
+    padding: 15px 0 30px 0;
+}
+
+.add_company_btn_div{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+.add_company_btn{
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: white;
+    background: var(--primary_blue);
+    font-size: 20px;
+    padding: 10px;
+    letter-spacing: 2px;
+}
+.add_company_btn:hover{
+    background: var(--secondary_blue);
+    cursor: pointer;
+}
+
+.add_company_inputs{
+    display: grid;
+    gap: 20px;
+}
+
+.return_field{
+    position: relative;
+}
+.return_field button{
+    position: absolute;
+    top: 10px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid var(--primary_blue);
+    outline: none;
+    color: var(--primary_blue);
+    background: none;
+    font-size: 16px;
+    padding: 7px 10px;
+    letter-spacing: 1px;
+}
+.return_field button:hover{
+    background: var(--secondary_blue);
+    border: 1px solid var(--secondary_blue);
+    color: white;
+    cursor: pointer;
+}

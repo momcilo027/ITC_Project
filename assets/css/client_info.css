@@ -1,0 +1,36 @@
+.client_info_container{
+    background: white;
+    width: 1100px;
+    height: 650px;
+    border-radius: 20px;
+    padding: 20px 40px;
+    position: relative;
+}
+.client_info_content_div{
+
+}
+.client_info_content_div h1{
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding: 50px 0 0 0;
+}
+.client_info_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 50px;
+}
+.client_data_form{
+    padding-right: 50px;
+}
+.client_data_form_div{
+    position: relative;
+    height: 450px;
+}
+.client_data_form_inputs{
+    height: 380px;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 5px;
+}

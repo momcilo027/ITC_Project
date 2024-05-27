@@ -96,4 +96,34 @@ function get_users($token = null){
     }
 }
 
+function get_user_by_id($id = null, $token = null){
+    if ($id === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("SELECT * FROM users WHERE id = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("s", $id);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        $stmt->close();
+        $connection->close();
+        return $user;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
 ?>

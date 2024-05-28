@@ -1,0 +1,13 @@
+.add_client_page_container{
+    background: white;
+    width: 700px;
+    height: 600px;
+    border-radius: 20px;
+    padding: 20px 40px;
+    position: relative;
+}
+.add_client_page_content_div{
+    display: flex;
+    justify-content: center;
+    height: 490px;
+}

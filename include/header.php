@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../assets/css/login.css">
         <link rel="stylesheet" href="../assets/css/main_page.css">
         <link rel="stylesheet" href="../assets/css/add_company.css">
+        <link rel="stylesheet" href="../assets/css/add_client.css">
         <link rel="stylesheet" href="../assets/css/user_info.css">
         <link rel="stylesheet" href="../assets/css/client_info.css">
         <link rel="stylesheet" href="../assets/css/company_info.css">

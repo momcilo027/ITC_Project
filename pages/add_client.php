@@ -7,7 +7,7 @@
 
 
 
-<div class="add_company_page_container" method="POST">
+<div class="add_client_page_container" method="POST">
     <div class="main_page_heading_div">
         <h1 class="main_page_heading">ITC PROJECT</h1>
         <div class="main_page_heading_user_info">
@@ -22,7 +22,7 @@
     <div class="return_field">
         <button onclick="location.href='main_page.php'">< Go back</button>
     </div>
-    <div class="add_company_page_content_div">
+    <div class="add_client_page_content_div">
         <div class="add_company_page_content">
             <div>
                 <h1 class="add_company_heading">ADD CLIENT</h1>
@@ -63,7 +63,7 @@
                         placeholder=""
                     >
                 </div>
-                <div class="login_input">
+                <!-- <div class="login_input">
                     <label for="company_address">Company</label>
                     <div class="company_add_client_div_full">
                         <div class="custom_data_fill_search">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="add_company_btn_div">
                 <button class="add_company_btn" name="add_company_save_btn">SAVE</button>

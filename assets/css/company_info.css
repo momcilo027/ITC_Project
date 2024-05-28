@@ -1,0 +1,150 @@
+.company_info_container{
+    background: white;
+    width: 1100px;
+    height: 650px;
+    border-radius: 20px;
+    padding: 20px 40px;
+}
+.company_info_content_div{
+    display: grid;
+    justify-content: center;
+}
+.company_info_content{
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    margin: 5px 0 0 0;
+    width: 950px;
+    height: 420px;
+}
+.company_left_info{
+    position: relative;
+    padding-right: 30px;
+}
+.company_left_info .login_input{
+    margin: 20px 0;
+}
+.company_left_info .login_input input[type="file"]{
+    font-size: 15.5px;
+}
+.company_left_inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.company_right_info{
+}
+
+.logo_preview{
+    margin-top: -21px;
+    padding: 5px 0 10px 0;
+}
+.logo_preview label{
+    display: block;
+    padding: 5px 0;
+}
+
+.company_add_client{
+
+}
+.company_add_client h1{
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: normal;
+    font-size: 18px;
+}
+.vis_hidden{
+    visibility: hidden;
+}
+
+.custom_data_fill_search{
+    position: relative;
+}
+.custom_data_fill_search input{
+    outline: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+    padding: 5px 10px;
+    width: 100%;
+    letter-spacing: 2px;
+}
+.custom_data_fill_search input:hover{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+}
+.custom_data_fill_search input:active{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+}
+.custom_data_fill_search input:focus{
+    border: 1px solid var(--primary_blue);
+    outline: 1px solid var(--primary_blue);
+}
+
+.company_add_client_div{
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    gap: 10px;
+    padding: 10px 0;
+}
+.company_add_client_div_full{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px 0;
+}
+.company_add_client_btn button{
+    outline: none;
+    border: 1px solid var(--primary_blue);
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 100%;
+    letter-spacing: 1px;
+    background: var(--primary_blue);
+    height: 100%;
+}
+.company_add_client_btn button:hover{
+    background: var(--secondary_blue);
+    border: 1px solid var(--secondary_blue);
+    cursor: pointer;
+}
+
+.company_connected_clients{
+    height: 285px;
+    width: 80%;
+    margin: 15px auto 0px auto;
+    overflow: auto;
+}
+
+.client_list_div{
+    display: grid;
+    grid-template-columns: 1fr .2fr;
+    align-items: center;
+}
+.client_list_div button{
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--error_lightred);
+    font-size: 20px;
+}
+.client_list_div button:hover{
+    color: var(--error_red);
+    cursor: pointer;
+}
+
+.delete_logo{
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--error_lightred);
+    font-size: 20px;
+    margin-left: 20px;
+}
+.delete_logo:hover{
+    color: var(--error_red);
+    cursor: pointer;
+}

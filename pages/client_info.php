@@ -2,6 +2,7 @@
     require_once('../include/header.php'); 
     session_start();
     authenticateUser();
+    $active_user = get_user_by_id($_SESSION['user_id'], $_SESSION['token']);
 ?>
 
 
@@ -11,8 +12,11 @@
         <h1 class="main_page_heading">ITC PROJECT</h1>
         <div class="main_page_heading_user_info">
             <label>Welcome, </label>
-            <label class="user_username">moma</label>
-            <label class="user_role">(Super Admin) </label>
+            <label class="user_username"><?php echo $active_user['username']; ?></label>
+            <label class="user_role">(<?php echo $active_user['role']; ?>) </label>
+            <form method="POST">
+                <button class="logOut_btn" name="logOut_btn"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </form>
         </div>
         
     </div>

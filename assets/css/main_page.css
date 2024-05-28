@@ -12,6 +12,23 @@
     align-items: end;
 }
 
+.main_page_heading_user_info{
+    display: flex;
+    gap: 5px;
+}
+.logOut_btn{
+    background:none;
+    border: none;
+    outline: none;
+    color: black;
+    padding-left: 15px;
+    font-size: 20px;
+}
+.logOut_btn:hover{
+    color: var(--primary_blue);
+    cursor: pointer;
+}
+
 .main_page_heading{
     text-align: start;
     color: var(--primary_blue);

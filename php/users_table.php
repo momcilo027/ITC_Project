@@ -126,4 +126,145 @@ function get_user_by_id($id = null, $token = null){
     }
 }
 
+function get_user_by_email($email = null, $token = null){
+    if ($email === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("SELECT * FROM users WHERE email = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("s", $email);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        $stmt->close();
+        $connection->close();
+        return $user;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
+function update_user_role($id = null, $role = null, $token = null){
+    if ($id === null || $role === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("UPDATE users SET role = ? WHERE id = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("si", $role, $id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        $connection->close();
+        return true;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
+function delete_user($id = null, $token = null){
+    if ($id === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("DELETE FROM users WHERE id = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("i", $id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        $connection->close();
+        return true;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
+
+function update_user_with_pw($id = null, $name= null , $username = null, $email = null, $password = null, $token = null){
+    if ($id === null || $name === null || $username === null || $email === null || $password === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("UPDATE users SET name = ?, username = ?, email = ?, password = ? WHERE id = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    $stmt->bind_param("ssssi", $name, $username, $email, $hashedPassword, $id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        $connection->close();
+        return true;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
+function update_user_without_pw($id = null, $name= null , $username = null, $email = null, $token = null){
+    if ($id === null || $name === null || $username === null || $email === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("UPDATE users SET name = ?, username = ?, email = ? WHERE id = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("sssi", $name, $username, $email, $id);
+
+    if ($stmt->execute()) {
+        $stmt->close();
+        $connection->close();
+        return true;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
 ?>

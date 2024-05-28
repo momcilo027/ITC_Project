@@ -56,4 +56,20 @@
         }
     }
 
+
+    function logout(){
+        session_start();
+        $_SESSION['user_id'] = null;
+        $_SESSION['token'] = null;
+        session_destroy();
+
+
+        header("Location: http://localhost/itc_project/pages/login.php"); 
+        exit();
+    }
+
+    if(isset($_POST['logOut_btn'])){
+        logout();
+    }
+
 ?>

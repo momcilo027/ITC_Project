@@ -13,6 +13,7 @@
     --primary_blue: #2986CC;
     --secondary_blue : #144366;
     --error_red : #CC0000;
+    --error_lightred: #E99393;
 
     font-family: 'customFont', sans-serif;
 }
@@ -28,4 +29,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Track */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #A9CEEA;
 }

@@ -50,4 +50,34 @@ function get_companies($token = null){
         return "(Compile query) ERROR: " . $stmt->error;
     }
 }
+
+function get_company_by_id($id = null, $token = null){
+    if ($id === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("SELECT * FROM companies WHERE id = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("s", $id);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $company = $result->fetch_assoc();
+
+        $stmt->close();
+        $connection->close();
+        return $company;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
 ?>

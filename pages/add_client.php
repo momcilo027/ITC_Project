@@ -14,6 +14,9 @@
             <label>Welcome, </label>
             <label class="user_username"><?php echo $active_user['username']; ?></label>
             <label class="user_role">(<?php echo $active_user['role']; ?>) </label>
+            <form method="POST">
+                <button class="logOut_btn" name="logOut_btn"><i class="fa-solid fa-right-from-bracket"></i></button>
+            </form>
         </div>
     </div>
     <div class="return_field">
@@ -62,21 +65,19 @@
                 </div>
                 <div class="login_input">
                     <label for="company_address">Company</label>
-                    <div class="custom_redirect_search">
-                    <input 
-                        type="text" 
-                        placeholder="USER"
-                        onclick="list_suggestion(event.target, 'http://localhost/itc_project/API/all_users.php', 'user_info');"
-                        onkeyup="custom_redirect_search(event.target, 'http://localhost/itc_project/API/find_user.php', 'user_info');"
-                        onblur="handleBlur(event);"
-                    >
-                    <div id="custom_redirect_list" class="custom_redirect_list hidden">
-                        <!-- <button>Momcilo Krstic</button>
-                        <button>Ana Grujic</button>
-                        <button>Lazar Stanojevic</button>
-                        <button>Momcilo Krstic</button> -->
+                    <div class="company_add_client_div_full">
+                        <div class="custom_data_fill_search">
+                            <input 
+                                type="text" 
+                                placeholder="COMPANY"
+                                onclick="data_fill_list_suggestion(event.target, 'http://localhost/itc_project/API/all_companies.php', 'company_info');"
+                                onkeyup="custom_data_fill_search(event.target, 'http://localhost/itc_project/API/find_company.php', 'company_info');"
+                                onblur="data_fill_handleBlur(event);"
+                            >
+                            <div id="custom_redirect_list" class="custom_redirect_list vis_hidden">
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             <div class="add_company_btn_div">
@@ -87,7 +88,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous" ></script>
-<script src="../assets/js/custom_redirect_search.js"></script>
+<script src="../assets/js/custom_data_fill_search.js"></script>
 
 
 

@@ -1,7 +1,7 @@
 .user_info_container{
     background: white;
-    width: 700px;
-    height: 750px;
+    width: 800px;
+    height: 650px;
     border-radius: 20px;
     padding: 20px 40px;
 }
@@ -15,6 +15,7 @@
 }
 .user_info_content_heading h1{
     letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 .API_link{
     background: var(--primary_blue);
@@ -31,14 +32,36 @@
     cursor: pointer;
 }
 .user_info_content{
-    height: 520px;
+    height: 420px;
     position: relative;
-    width: 350px;
+    width: 600px;
+    display: grid;
 }
 .user_info_inputs{
     display: grid;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 0 0 0;
     gap: 20px;
+}
+.user_info_inputs_left{
+}
+.user_info_inputs_left .login_input{
+    margin: 15px 0;
+    display: block;
+    width: 100%;
+}
+.user_info_inputs_left .login_input_error{
+    margin: 15px 0;
+    display: block;
+    width: 100%;
+}
+
+.user_info_inputs_right{
+}
+.user_info_inputs_right .login_input{
+    margin: 15px 0;
+    display: block;
+    width: 100%;
 }
 .user_info_btn_div{
     position: absolute;
@@ -80,4 +103,24 @@
 .user_info_btn:disabled{
     background: rgba(0, 0, 0, .35);
     cursor: default;
+}
+
+.delete_div{
+    width: 100%;
+}
+.delete_btn{
+    background: var(--error_lightred);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    width: 100%;
+    color: rgba(0, 0, 0, .5);
+    letter-spacing: 1px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.delete_btn:hover{
+    background: var(--error_red);
+    cursor: pointer;
+    color: white;
 }

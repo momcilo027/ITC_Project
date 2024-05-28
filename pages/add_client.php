@@ -1,5 +1,6 @@
 <?php 
     require_once('../include/header.php'); 
+    require_once('../php/add_client_check.php');
     session_start();
     authenticateUser();
     $active_user = get_user_by_id($_SESSION['user_id'], $_SESSION['token']);
@@ -23,38 +24,45 @@
         <button onclick="location.href='main_page.php'">< Go back</button>
     </div>
     <div class="add_client_page_content_div">
-        <div class="add_company_page_content">
+        <form class="add_client_page_content" method="POST">
             <div>
                 <h1 class="add_company_heading">ADD CLIENT</h1>
             </div>
             <div class="add_company_inputs">
-                <div class="login_input">
+                <div class="<?php if($error['client_name'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                     <label for="client_name">Client Name</label>
                     <input 
                         type="text" 
                         id="client_name" 
                         name="client_name"
-                        placeholder=""
+                        placeholder="<?php echo $error['client_name']; ?>"
+                        autocomplete="off"
+                        value="<?php echo $data['client_name']; ?>"
                     >
                 </div>
-                <div class="login_input">
+                <div class="<?php if($error['client_email'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                     <label for="client_email">Email address</label>
                     <input 
                         type="email" 
                         id="client_email" 
                         name="client_email"
-                        placeholder=""
+                        placeholder="<?php echo $error['client_email']; ?>"
+                        autocomplete="off"
+                        value="<?php echo $data['client_email']; ?>"
                     >
                 </div>
-                <div class="login_input">
+                <div class="<?php if($error['client_phone'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                     <label for="client_phone">Phone</label>
                     <input 
                         type="text" 
                         id="client_phone" 
                         name="client_phone"
+                        placeholder="<?php echo $error['client_phone']; ?>"
+                        autocomplete="off"
+                        value="<?php echo $data['client_phone']; ?>"
                     >
                 </div>
-                <div class="login_input">
+                <!-- <div class="login_input">
                     <label for="company_address">Address</label>
                     <input 
                         type="text" 
@@ -62,7 +70,7 @@
                         name="company_address"
                         placeholder=""
                     >
-                </div>
+                </div> -->
                 <!-- <div class="login_input">
                     <label for="company_address">Company</label>
                     <div class="company_add_client_div_full">
@@ -81,9 +89,9 @@
                 </div> -->
             </div>
             <div class="add_company_btn_div">
-                <button class="add_company_btn" name="add_company_save_btn">SAVE</button>
+                <button type="submit" class="add_company_btn" name="add_client_save_btn">SAVE</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

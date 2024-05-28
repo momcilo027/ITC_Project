@@ -9,22 +9,22 @@
     $data = isset($_GET['data']) ? $_GET['data'] : '';
 
     $connection = connection();
-    $stmt = $connection->prepare("SELECT * FROM companies");
+    $stmt = $connection->prepare("SELECT * FROM clients");
     if($data !== ''){
-        $stmt = $connection->prepare("SELECT * FROM companies WHERE (name LIKE ?)");
+        $stmt = $connection->prepare("SELECT * FROM clients WHERE (name LIKE ?)");
         $param = $data."%";
         $stmt->bind_param("s", $param);
     }
     $stmt->execute();
     $results = $stmt->get_result();
 
-    $companies = [];
+    $clients = [];
     foreach($results AS $result){
-        array_push($companies, $result);
+        array_push($clients, $result);
     }
 
     $stmt->close();
     $connection->close();
 
-    echo json_encode($companies);
+    echo json_encode($clients);
 ?>

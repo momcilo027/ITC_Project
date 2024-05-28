@@ -43,6 +43,7 @@
 
     function authenticateUser(){
         if (!isset($_SESSION['token'])) {
+            logout();
             http_response_code(401); // Unauthorized
             exit('Unauthorized');
         }
@@ -51,6 +52,7 @@
     
         // Validacija tokena
         if (!validateToken($token)) {
+            logout();
             http_response_code(401); // Unauthorized
             exit('Unauthorized');
         }

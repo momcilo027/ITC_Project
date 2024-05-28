@@ -1,7 +1,7 @@
 .add_client_page_container{
     background: white;
     width: 700px;
-    height: 600px;
+    height: 560px;
     border-radius: 20px;
     padding: 20px 40px;
     position: relative;
@@ -9,5 +9,11 @@
 .add_client_page_content_div{
     display: flex;
     justify-content: center;
-    height: 490px;
+    height: 450px;
+    padding-top: 20px;
+}
+.add_client_page_content{
+    width: 330px;
+    padding: 30px 0;
+    position: relative;
 }

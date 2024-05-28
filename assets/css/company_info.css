@@ -26,11 +26,20 @@
 .company_left_info .login_input input[type="file"]{
     font-size: 15.5px;
 }
+
+.company_left_info .login_input_error{
+    margin: 20px 0;
+}
+.company_left_info .login_input_error input[type="file"]{
+    font-size: 15.5px;
+}
+
 .company_left_inputs{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
+
 .company_right_info{
 }
 

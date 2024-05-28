@@ -57,7 +57,15 @@
                     </div>
                 </div>
                 <div class="custom_redirect_search">
-                    <input type="text" placeholder="CLIENT">
+                    <input 
+                        type="text" 
+                        placeholder="CLIENT"
+                        onclick="list_suggestion(event.target, 'http://localhost/itc_project/API/all_clients.php', 'client_info');"
+                        onkeyup="custom_redirect_search(event.target, 'http://localhost/itc_project/API/find_client.php', 'client_info');"
+                        onblur="handleBlur(event);"
+                    >
+                    <div id="custom_redirect_list" class="custom_redirect_list hidden">
+                    </div>
                 </div>
             </div>
         </div>

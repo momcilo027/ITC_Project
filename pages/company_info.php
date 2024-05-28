@@ -3,6 +3,7 @@
     require_once('../php/company_info.php');
     authenticateUser();
     $active_user = get_user_by_id($_SESSION['user_id'], $_SESSION['token']);
+    $clients = get_company_clients($_GET['id'], $_SESSION['token']);
 ?>
 
 
@@ -23,16 +24,16 @@
     <div class="return_field">
         <button onclick="location.href='main_page.php'">< Go back</button>
     </div>
-    <form class="company_info_content_div" method="POST">
+    <div class="company_info_content_div">
         <div class="user_info_content_heading">
             <h1>COMPANY INFORMATION</h1>
             <a class="API_link" href="http://localhost/itc_project/API/all_companies.php" target="_blank">ALL COMPANIES API</a>
         </div>
-        <div class="company_info_content">
+        <form class="company_info_content" method="POST" enctype="multipart/form-data">
             <div class="company_left_info">
                 <div class="company_left_inputs">
                     <div class="company_left_left">
-                        <div class="login_input">
+                        <div class="<?php if($error['company_name'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                             <label for="company_name">Name</label>
                             <input 
                                 type="text" 
@@ -43,7 +44,7 @@
                                 autocomplete="off"
                             >
                         </div>
-                        <div class="login_input">
+                        <div class="<?php if($error['company_email'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                             <label for="company_email">Email</label>
                             <input 
                                 type="email" 
@@ -54,7 +55,7 @@
                                 autocomplete="off"
                             >
                         </div>
-                        <div class="login_input">
+                        <div class="<?php if($error['company_address'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                             <label for="company_address">Address</label>
                             <input 
                                 type="text" 
@@ -65,7 +66,7 @@
                                 autocomplete="off"
                             >
                         </div>
-                        <div class="login_input">
+                        <div class="<?php if($error['company_tax_id'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                             <label for="company_tax_id">Tax_id</label>
                             <input 
                                 type="text" 
@@ -79,23 +80,23 @@
                     </div>
                     <div class="company_left_right">
                         <div class="login_input">
-                            <label for="user_created_at">Created_at</label>
+                            <label for="company_created_at">Created_at</label>
                             <input 
                                 type="text" 
-                                id="user_created_at" 
-                                name="user_created_at"
+                                id="company_created_at" 
+                                name="company_created_at"
                                 value="<?php echo $company['created_at']; ?>"
                                 disabled
                             >
                         </div>
-                        <div class="login_input">
+                        <div class="<?php if($error['company_logo'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
                             <label for="company_logo">Logo (**max size : 10KB)</label>
                             <input 
                                 type="file" 
                                 id="company_logo" 
                                 name="company_logo"
-                                placeholder=""
-                                value=""
+                                accept="image/*"
+                                placeholder="<?php echo $error['company_logo']; ?>"
                                 autocomplete="off"
                             >
                         </div>
@@ -113,7 +114,7 @@
                                         src="<?php echo 'data:image/png;base64,'.$company['logo']; ?>" 
                                         alt="Logo"
                                     >
-                                    <button class="delete_logo"><i class="fa-solid fa-x"></i></button>
+                                    <button type="submit" class="delete_logo" name="delete_logo"><i class="fa-solid fa-x"></i></button>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -123,7 +124,7 @@
                     </div>
                 </div>
                 <div class="user_info_btn_div" style="right: 30px;">
-                    <button class="user_info_btn" name="user_info_update_btn" type="submit">UPDATE</button>
+                    <button class="user_info_btn" name="company_info_update_btn" type="submit">UPDATE</button>
                 </div>
             </div>
             <div class="company_right_info">
@@ -132,81 +133,45 @@
                     <div class="company_add_client_div">
                         <div class="custom_data_fill_search">
                             <input 
+                                name="add_client_search_for_company"
                                 type="text" 
                                 placeholder="CLIENT"
-                                onclick="data_fill_list_suggestion(event.target, 'http://localhost/itc_project/API/all_companies.php', 'company_info');"
-                                onkeyup="custom_data_fill_search(event.target, 'http://localhost/itc_project/API/find_company.php', 'company_info');"
+                                autocomplete="off"
+                                onclick="data_fill_list_suggestion(event.target, 'http://localhost/itc_project/API/all_clients.php', 'client_info');"
+                                onkeyup="custom_data_fill_search(event.target, 'http://localhost/itc_project/API/find_client.php', 'client_info');"
                                 onblur="data_fill_handleBlur(event);"
                             >
                             <div id="custom_redirect_list" class="custom_redirect_list vis_hidden">
                             </div>
                         </div>
                         <div class="company_add_client_btn">
-                            <button>ADD CLIENT</button>
+                            <button type="submit" name="add_client_to_company">ADD CLIENT</button>
                         </div>
                     </div>
                 </div>
                 <div class="company_connected_clients">
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_1</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
-                    <div class="client_list_div">
-                        <label>example_client_2</label>
-                        <button><i class="fa-solid fa-x"></i></button>
-                    </div>
+                    <?php if(count($clients) !== 0):?>
+                        <?php foreach($clients AS $client_data):?>
+                            <div class="client_list_div">
+                                <label><?php echo $client_data['name']; ?></label>
+                                <button type="submit" value="<?php echo $client_data['id']; ?>" name="remove_client_from_company"><i class="fa-solid fa-x"></i></button>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="client_list_div">
+                            <label>ZERO clients for this company</label>
+                        </div>
+                    <?php endif; ?>
+                    <!-- 
+                        <div class="client_list_div">
+                            <label>example_client_1</label>
+                            <button><i class="fa-solid fa-x"></i></button>
+                        </div> 
+                    -->
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous" ></script>

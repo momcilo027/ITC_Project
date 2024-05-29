@@ -12,18 +12,30 @@
         'password' => null
     ]; 
 
+    $token = generateBearerToken(1);
+
     if(isset($_POST['register_btn'])){
         if(empty($_POST['username'])){
             $errors++;
             $error['username'] = 'USERNAME IS REQUIRED';
         }else{
             $data['username'] = $_POST['username'];
+            $user = get_user_by_username($_POST['username'], $token);
+            if($user){
+                $errors++;
+                $error['username'] = 'USERNAME IS TAKEN';
+            }
         }
         if(empty($_POST['email'])){
             $errors++;
             $error['email'] = 'EMAIL IS REQUIRED';
         }else{
             $data['email'] = $_POST['email'];
+            $user = get_user_by_email($_POST['email'], $token);
+            if($user){
+                $errors++;
+                $error['email'] = 'EMAIL IS TAKEN';
+            }
         }
         if(empty($_POST['password'])){
             $errors++;

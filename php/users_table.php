@@ -1,15 +1,6 @@
 <?php 
 
 function register_user($username, $email, $password){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $username = data_check($username);
-    $email = data_check($email);
-    $password = data_check($password);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     $connection = connection();
     
     $token = generateBearerToken();
@@ -49,13 +40,6 @@ function register_user($username, $email, $password){
 }
 
 function get_user_by_username($username = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $username = data_check($username);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($username === null || $token === null) {
         return false;
     }
@@ -113,13 +97,6 @@ function get_users($token = null){
 }
 
 function get_user_by_id($id = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $id = data_check($id);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($id === null || $token === null) {
         return false;
     }
@@ -150,13 +127,6 @@ function get_user_by_id($id = null, $token = null){
 }
 
 function get_user_by_email($email = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $email = data_check($email);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($email === null || $token === null) {
         return false;
     }
@@ -187,14 +157,6 @@ function get_user_by_email($email = null, $token = null){
 }
 
 function update_user_role($id = null, $role = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $id = data_check($id);
-    $role = data_check($role);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($id === null || $role === null || $token === null) {
         return false;
     }
@@ -222,13 +184,6 @@ function update_user_role($id = null, $role = null, $token = null){
 }
 
 function delete_user($id = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $id = data_check($id);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($id === null || $token === null) {
         return false;
     }
@@ -257,17 +212,6 @@ function delete_user($id = null, $token = null){
 
 
 function update_user_with_pw($id = null, $name= null , $username = null, $email = null, $password = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $id = data_check($id);
-    $name = data_check($name);
-    $username = data_check($username);
-    $email = data_check($email);
-    $password = data_check($password);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($id === null || $name === null || $username === null || $email === null || $password === null || $token === null) {
         return false;
     }
@@ -297,16 +241,6 @@ function update_user_with_pw($id = null, $name= null , $username = null, $email 
 }
 
 function update_user_without_pw($id = null, $name= null , $username = null, $email = null, $token = null){
-
-    // ************* (start) data check (start) *************
-    // ************* (start) data check (start) *************
-    $id = data_check($id);
-    $name = data_check($name);
-    $username = data_check($username);
-    $email = data_check($email);
-    // ************* (end) data check (end) *************
-    // ************* (end) data check (end) *************
-
     if ($id === null || $name === null || $username === null || $email === null || $token === null) {
         return false;
     }

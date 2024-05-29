@@ -16,7 +16,7 @@
                 name="username" 
                 autocomplete="off" 
                 placeholder="<?php echo $error['username']; ?>"
-                value="<?php echo $data['username']; ?>"
+                value="<?php if($error['username'] !== null ){ echo null; }else{echo $data['username'];} ?>"
             >
         </div>
         <div class="<?php if($error['email'] == null){ echo "register_input";}else{ echo "register_input_error"; }?>">
@@ -27,7 +27,7 @@
                 name="email" 
                 autocomplete="off" 
                 placeholder="<?php echo $error['email']; ?>"
-                value="<?php echo $data['email']; ?>"
+                value="<?php if($error['email'] !== null ){ echo null; }else{echo $data['email'];} ?>"
             >
         </div>
         <div class="<?php if($error['password'] == null){ echo "register_input";}else{ echo "register_input_error"; }?>">

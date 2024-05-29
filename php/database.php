@@ -15,11 +15,4 @@ function connection(){
     }
 }
 
-function data_check($data = null){
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
 ?>

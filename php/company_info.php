@@ -29,6 +29,7 @@
 
     if(isset($_POST['delete_logo'])){
         delete_company_logo($company['id'], $token);
+        header("Location: http://localhost/itc_project/pages/company_info.php?id=".$company['id']);
     }
 
     if(isset($_POST['delete_company_btn'])){

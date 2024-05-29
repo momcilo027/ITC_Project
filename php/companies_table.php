@@ -1,6 +1,17 @@
 <?php 
 
 function create_company($c_name = null, $c_email = null, $logo = null, $address = null, $tax_id = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $c_name = data_check($c_name);
+    $c_email = data_check($c_email);
+    $logo = data_check($logo);
+    $address = data_check($address);
+    $tax_id = data_check($tax_id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     $connection = connection();
 
     $stmt = $connection->prepare("INSERT INTO companies (name, email, logo, address, tax_id, created_at) VALUES (?, ?, ?, ?, ?, ?)");
@@ -52,6 +63,13 @@ function get_companies($token = null){
 }
 
 function get_company_by_id($id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $token === null) {
         return false;
     }
@@ -82,6 +100,13 @@ function get_company_by_id($id = null, $token = null){
 }
 
 function get_company_by_name($name = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $name = data_check($name);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($name === null || $token === null) {
         return false;
     }
@@ -112,6 +137,13 @@ function get_company_by_name($name = null, $token = null){
 }
 
 function get_company_by_email($email = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $email = data_check($email);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($email === null || $token === null) {
         return false;
     }
@@ -142,6 +174,13 @@ function get_company_by_email($email = null, $token = null){
 }
 
 function delete_company_logo($id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $token === null) {
         return false;
     }
@@ -169,6 +208,13 @@ function delete_company_logo($id = null, $token = null){
 }
 
 function delete_company($id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $token === null) {
         return false;
     }
@@ -197,6 +243,18 @@ function delete_company($id = null, $token = null){
 
 
 function update_company($id = null, $name= null ,$email = null, $address = null, $tax_id = null, $logo = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    $name = data_check($name);
+    $email = data_check($email);
+    $address = data_check($address);
+    $tax_id = data_check($tax_id);
+    $logo = data_check($logo);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $name === null || $email === null || $address === null || $tax_id === null || $token === null) {
         return false;
     }
@@ -233,6 +291,13 @@ function update_company($id = null, $name= null ,$email = null, $address = null,
 
 
 function get_company_clients($company_id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $company_id = data_check($company_id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($company_id === null || $token === null) {
         return false;
     }
@@ -263,6 +328,14 @@ function get_company_clients($company_id = null, $token = null){
 }
 
 function remove_client_from_company($company_id = null, $client_id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $company_id = data_check($company_id);
+    $client_id = data_check($client_id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($company_id === null || $client_id === null || $token === null) {
         return false;
     }
@@ -290,6 +363,13 @@ function remove_client_from_company($company_id = null, $client_id = null, $toke
 }
 
 function remove_company_from_clients($company_id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $company_id = data_check($company_id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($company_id === null || $token === null) {
         return false;
     }

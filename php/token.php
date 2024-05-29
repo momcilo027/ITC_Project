@@ -50,7 +50,6 @@
     
         $token = $_SESSION['token'];
     
-        // Validacija tokena
         if (!validateToken($token)) {
             logout();
             http_response_code(401); // Unauthorized

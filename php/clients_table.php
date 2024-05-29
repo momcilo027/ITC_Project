@@ -3,6 +3,14 @@
 function create_client($client_name = null, $client_email = null, $client_phone = null){
     $connection = connection();
 
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $client_name = data_check($client_name);
+    $client_email = data_check($client_email);
+    $client_phone = data_check($client_phone);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     $stmt = $connection->prepare("INSERT INTO clients (name, email, phone, created_at) VALUES (?, ?, ?, ?)");
     if ($stmt === false) {
         die("(Prepare query) ERROR: " . $connection->error);
@@ -25,6 +33,13 @@ function create_client($client_name = null, $client_email = null, $client_phone 
 }
 
 function get_client_by_name($name = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $name = data_check($name);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($name === null || $token === null) {
         return false;
     }
@@ -55,6 +70,13 @@ function get_client_by_name($name = null, $token = null){
 }
 
 function get_client_by_email($email = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $email = data_check($email);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($email === null || $token === null) {
         return false;
     }
@@ -85,6 +107,13 @@ function get_client_by_email($email = null, $token = null){
 }
 
 function get_client_by_id($id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $token === null) {
         return false;
     }
@@ -116,6 +145,14 @@ function get_client_by_id($id = null, $token = null){
 
 
 function add_client_to_company($company_id = null, $client = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $company_id = data_check($company_id);
+    $client = data_check($client);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($company_id === null || $client === null || $token === null) {
         return false;
     }
@@ -186,6 +223,14 @@ function get_clients($token = null){
 
 
 function set_client_companies($companies = null, $client_id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $companies = data_check($companies);
+    $client_id = data_check($client_id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($companies === null || $client_id === null || $token === null) {
         return false;
     }
@@ -214,6 +259,13 @@ function set_client_companies($companies = null, $client_id = null, $token = nul
 
 
 function get_companies_for_client($client_id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $client_id = data_check($client_id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($client_id === null || $token === null) {
         return false;
     }
@@ -236,6 +288,14 @@ function get_companies_for_client($client_id = null, $token = null){
 }
 
 function add_company_to_client($client_id = null, $company_name = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $client_id = data_check($client_id);
+    $company_name = data_check($company_name);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($client_id === null || $company_name === null || $token === null) {
         return false;
     }
@@ -277,7 +337,17 @@ function add_company_to_client($client_id = null, $company_name = null, $token =
     }
 }
 
-function update_client($id = null, $name= null ,$email = null, $phone = null, $token = null){
+function update_client($id = null, $name= null, $email = null, $phone = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    $name = data_check($name);
+    $email = data_check($email);
+    $phone = data_check($phone);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $name === null || $email === null || $phone === null || $token === null) {
         return false;
     }
@@ -307,6 +377,13 @@ function update_client($id = null, $name= null ,$email = null, $phone = null, $t
 
 
 function delete_client($id = null, $token = null){
+
+    // ************* (start) data check (start) *************
+    // ************* (start) data check (start) *************
+    $id = data_check($id);
+    // ************* (end) data check (end) *************
+    // ************* (end) data check (end) *************
+
     if ($id === null || $token === null) {
         return false;
     }

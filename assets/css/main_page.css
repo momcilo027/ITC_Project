@@ -39,6 +39,10 @@
     color: var(--primary_blue);
     font-weight: bold;
 }
+.user_username:hover{
+    color: var(--secondary_blue);
+    cursor: pointer;
+}
 .user_role{
     font-weight: bold;
 }

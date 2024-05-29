@@ -36,5 +36,9 @@
     </div>
 </form>
 
+<div class="redirect_start">
+    <a href="/itc_project/pages/register.php">Register</a>
+</div>
+
 
 <?php require_once('../include/footer.php'); ?>

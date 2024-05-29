@@ -1,4 +1,7 @@
 <?php 
+
+    session_start();
+
     $error = [
         'client_name' => null,
         'client_email' => null,
@@ -18,12 +21,22 @@
             $error['client_name'] = 'CLIENT NAME IS REQUIRED';
         }else{
             $data['client_name'] = $_POST['client_name'];
+            $client_get = get_client_by_name($_POST['client_name'], $_SESSION['token']);
+            if($client_get){
+                $errors++;
+                $error['client_name'] = 'CLIENT ALREADY EXISTS';
+            }
         }
         if(empty($_POST['client_email'])){
             $errors++;
             $error['client_email'] = 'CLIENT EMAIL IS REQUIRED';
         }else{
             $data['client_email'] = $_POST['client_email'];
+            $client_get = get_client_by_email($_POST['client_email'], $_SESSION['token']);
+            if($client_get){
+                $errors++;
+                $error['client_email'] = 'CLIENT EMAIL IS TAKEN';
+            }
         }
         if(empty($_POST['client_phone'])){
             $errors++;

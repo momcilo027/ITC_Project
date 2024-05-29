@@ -54,6 +54,36 @@ function get_client_by_name($name = null, $token = null){
     }
 }
 
+function get_client_by_email($email = null, $token = null){
+    if ($email === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("SELECT * FROM clients WHERE email = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("s", $email);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $client = $result->fetch_assoc();
+
+        $stmt->close();
+        $connection->close();
+        return $client;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
 function get_client_by_id($id = null, $token = null){
     if ($id === null || $token === null) {
         return false;

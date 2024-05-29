@@ -111,6 +111,36 @@ function get_company_by_name($name = null, $token = null){
     }
 }
 
+function get_company_by_email($email = null, $token = null){
+    if ($email === null || $token === null) {
+        return false;
+    }
+
+    if (!validateToken($token)) {
+        return "Invalid JWT token.";
+    }
+
+    $connection = connection();
+
+    $stmt = $connection->prepare("SELECT * FROM companies WHERE email = ?");
+    if ($stmt === false) {
+        return "(Prepare query) ERROR: " . $connection->error;
+    }
+
+    $stmt->bind_param("s", $email);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        $company = $result->fetch_assoc();
+
+        $stmt->close();
+        $connection->close();
+        return $company;
+    } else {
+        return "(Compile query) ERROR: " . $stmt->error;
+    }
+}
+
 function delete_company_logo($id = null, $token = null){
     if ($id === null || $token === null) {
         return false;

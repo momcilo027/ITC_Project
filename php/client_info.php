@@ -41,12 +41,26 @@
             $error['client_name'] = 'NAME IS REQUIRED';
         }else{
             $data['client_name'] = $_POST['client_name'];
+            $client_data = get_client_by_name($_POST['client_name'], $token);
+            if($client_data){
+                if($client_data['id'] !== $client['id']){
+                    $errors++;
+                    $error['client_name'] = 'NAME IS TAKEN';
+                }
+            }
         }
         if(empty($_POST['client_email'])){
             $errors++;
             $error['client_email'] = 'EMAIL IS REQUIRED';
         }else{
             $data['client_email'] = $_POST['client_email'];
+            $client_data = get_client_by_email($_POST['client_email'], $token);
+            if($client_data){
+                if($client_data['id'] !== $client['id']){
+                    $errors++;
+                    $error['client_email'] = 'EMAIL IS TAKEN';
+                }
+            }
         }
         if(empty($_POST['client_phone'])){
             $errors++;

@@ -44,12 +44,26 @@
             $error['company_name'] = 'NAME IS REQUIRED';
         }else{
             $data['company_name'] = $_POST['company_name'];
+            $company_data = get_company_by_name($_POST['company_name'], $token);
+            if($company_data){
+                if($company_data['id'] !== $company['id']){
+                    $errors++;
+                    $error['company_name'] = 'NAME IS TAKEN';
+                }
+            }
         }
         if(empty($_POST['company_email'])){
             $errors++;
             $error['company_email'] = 'EMAIL IS REQUIRED';
         }else{
             $data['company_email'] = $_POST['company_email'];
+            $company_data = get_company_by_email($_POST['company_email'], $token);
+            if($company_data){
+                if($company_data['id'] !== $company['id']){
+                    $errors++;
+                    $error['company_email'] = 'EMAIL IS TAKEN';
+                }
+            }
         }
         if(empty($_POST['company_address'])){
             $errors++;

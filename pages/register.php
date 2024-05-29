@@ -45,5 +45,8 @@
     </div>
 </form>
 
+<div class="redirect_start">
+    <a href="/itc_project/pages/login.php">Login</a>
+</div>
 
 <?php require_once('../include/footer.php'); ?>

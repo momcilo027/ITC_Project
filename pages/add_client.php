@@ -1,7 +1,7 @@
 <?php 
     require_once('../include/header.php'); 
     require_once('../php/add_client_check.php');
-    session_start();
+    // session_start();
     authenticateUser();
     $active_user = get_user_by_id($_SESSION['user_id'], $_SESSION['token']);
 ?>
@@ -13,7 +13,7 @@
         <h1 class="main_page_heading">ITC PROJECT</h1>
         <div class="main_page_heading_user_info">
             <label>Welcome, </label>
-            <label class="user_username"><?php echo $active_user['username']; ?></label>
+            <label onclick="location.href = 'http://localhost/itc_project/pages/user_info.php?id=<?php echo $_SESSION['user_id']; ?>'" class="user_username"><?php echo $active_user['username']; ?></label>
             <label class="user_role">(<?php echo $active_user['role']; ?>) </label>
             <form method="POST">
                 <button class="logOut_btn" name="logOut_btn"><i class="fa-solid fa-right-from-bracket"></i></button>
@@ -37,7 +37,7 @@
                         name="client_name"
                         placeholder="<?php echo $error['client_name']; ?>"
                         autocomplete="off"
-                        value="<?php echo $data['client_name']; ?>"
+                        value="<?php if($error['client_name'] !== null){ echo ''; }else{ echo $data['client_name']; } ?>"
                     >
                 </div>
                 <div class="<?php if($error['client_email'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
@@ -48,7 +48,7 @@
                         name="client_email"
                         placeholder="<?php echo $error['client_email']; ?>"
                         autocomplete="off"
-                        value="<?php echo $data['client_email']; ?>"
+                        value="<?php if($error['client_email'] !== null){ echo ''; }else{ echo $data['client_email']; } ?>"
                     >
                 </div>
                 <div class="<?php if($error['client_phone'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">

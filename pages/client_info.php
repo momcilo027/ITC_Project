@@ -13,7 +13,7 @@
         <h1 class="main_page_heading">ITC PROJECT</h1>
         <div class="main_page_heading_user_info">
             <label>Welcome, </label>
-            <label class="user_username"><?php echo $active_user['username']; ?></label>
+            <label onclick="location.href = 'http://localhost/itc_project/pages/user_info.php?id=<?php echo $_SESSION['user_id']; ?>'" class="user_username"><?php echo $active_user['username']; ?></label>
             <label class="user_role">(<?php echo $active_user['role']; ?>) </label>
             <form method="POST">
                 <button class="logOut_btn" name="logOut_btn"><i class="fa-solid fa-right-from-bracket"></i></button>

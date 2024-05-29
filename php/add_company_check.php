@@ -1,4 +1,7 @@
 <?php 
+
+    session_start();
+    
     $error = [
         'company_name' => null,
         'company_email' => null,
@@ -22,12 +25,22 @@
             $error['company_name'] = 'COMPANY NAME IS REQUIRED';
         }else{
             $data['company_name'] = $_POST['company_name'];
+            $company_get = get_company_by_name($_POST['company_name'], $_SESSION['token']);
+            if($company_get){
+                $errors++;
+                $error['company_name'] = 'COMPANY ALREADY EXISTS';
+            }
         }
         if(empty($_POST['company_email'])){
             $errors++;
             $error['company_email'] = 'COMPANY EMAIL IS REQUIRED';
         }else{
             $data['company_email'] = $_POST['company_email'];
+            $company_get = get_company_by_email($_POST['company_email'], $_SESSION['token']);
+            if($company_get){
+                $errors++;
+                $error['company_email'] = 'COMPANY EMAIL IS TAKEN';
+            }
         }
         if(empty($_POST['company_address'])){
             $errors++;

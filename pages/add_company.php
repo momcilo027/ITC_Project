@@ -1,7 +1,7 @@
 <?php 
     require_once('../include/header.php'); 
     require_once('../php/add_company_check.php');
-    session_start();
+    // session_start();
     authenticateUser();
     $active_user = get_user_by_id($_SESSION['user_id'], $_SESSION['token']);
 ?>
@@ -13,7 +13,7 @@
         <h1 class="main_page_heading">ITC PROJECT</h1>
         <div class="main_page_heading_user_info">
             <label>Welcome, </label>
-            <label class="user_username"><?php echo $active_user['username']; ?></label>
+            <label onclick="location.href = 'http://localhost/itc_project/pages/user_info.php?id=<?php echo $_SESSION['user_id']; ?>'" class="user_username"><?php echo $active_user['username']; ?></label>
             <label class="user_role">(<?php echo $active_user['role']; ?>) </label>
             <form method="POST">
                 <button class="logOut_btn" name="logOut_btn"><i class="fa-solid fa-right-from-bracket"></i></button>
@@ -37,7 +37,7 @@
                         name="company_name"
                         placeholder="<?php echo $error['company_name']; ?>"
                         autocomplete="off"
-                        value="<?php echo $data['company_name']; ?>"
+                        value="<?php if($error['company_name'] !== null){ echo ''; }else{ echo $data['company_name']; } ?>"
                     >
                 </div>
                 <div class="<?php if($error['company_email'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">
@@ -48,7 +48,7 @@
                         name="company_email"
                         placeholder="<?php echo $error['company_email']; ?>"
                         autocomplete="off"
-                        value="<?php echo $data['company_email']; ?>"
+                        value="<?php if($error['company_email'] !== null){ echo ''; }else{ echo $data['company_email']; } ?>"
                     >
                 </div>
                 <div class="<?php if($error['logo'] == null){ echo "login_input";}else{ echo "login_input_error"; }?>">

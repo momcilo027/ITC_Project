@@ -38,7 +38,7 @@
             $data['user_username'] = $_POST['user_username'];
             $un_user = get_user_by_username($data['user_username'], $token);
             if($un_user){
-                if($un_user['id'] !== $_SESSION['user_id']){
+                if($un_user['id'] !== $user['id']){
                     $errors++;
                     $error['user_username'] = 'USERNAME IS TAKEN';
                 }
@@ -51,7 +51,7 @@
             $data['user_email'] = $_POST['user_email'];
             $em_user = get_user_by_email($data['user_email'], $token);
             if($em_user){
-                if($em_user['id'] !== $_SESSION['user_id']){
+                if($em_user['id'] !== $user['id']){
                     $errors++;
                     $error['user_email'] = 'EMAIL IS TAKEN';
                 }

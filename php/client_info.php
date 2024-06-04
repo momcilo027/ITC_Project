@@ -26,6 +26,7 @@
     if(isset($_POST['add_company_to_client'])){
         if(!empty($_POST['add_company_search_for_client'])){
             add_company_to_client($client['id'], $_POST['add_company_search_for_client'], $token);
+            header("Location: http://localhost/itc_project/pages/client_info.php?id=".$client['id']);
         }
     }
 
